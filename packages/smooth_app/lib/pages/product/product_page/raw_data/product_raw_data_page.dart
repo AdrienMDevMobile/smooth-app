@@ -23,7 +23,7 @@ class ProductRawDataPageState extends State<ProductRawDataPage> {
     return Scaffold(
         appBar: AppBar(title: Text("AdrienMICHEL")),
         body: ProductRawDataList(widget.product),
-        backgroundColor: Color.fromARGB(255, 101, 18, 18));
+        backgroundColor: Color.fromARGB(255, 201, 135, 135));
   }
 }
 

@@ -14,16 +14,20 @@ class ProductRawDataCategoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text(category.name),
-      ListView.separated(
-          controller: controller,
-          shrinkWrap: true,
-          separatorBuilder: (context, index) => Divider(color: Colors.black),
-          itemCount: category.rawDatas.length,
-          itemBuilder: (BuildContext context, int index) {
-            return ProductRawDataElementView(category.rawDatas[index]);
-          })
+      Container(
+        margin: const EdgeInsets.only(left: 90.0),
+        child: ListView.separated(
+            controller: controller,
+            shrinkWrap: true,
+            physics: ClampingScrollPhysics(),
+            separatorBuilder: (context, index) => Divider(color: Colors.black),
+            itemCount: category.rawDatas.length,
+            itemBuilder: (BuildContext context, int index) {
+              return ProductRawDataElementView(category.rawDatas[index]);
+            }),
+      )
     ]);
   }
 }
@@ -36,6 +40,6 @@ class ProductRawDataElementView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text("elem" + element.name);
+    return Text(element.name);
   }
 }
