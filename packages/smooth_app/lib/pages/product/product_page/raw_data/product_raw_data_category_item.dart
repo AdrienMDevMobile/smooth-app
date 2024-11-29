@@ -41,17 +41,31 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return Row(
-      children: <Widget>[
-        IconTheme(
-          data: IconThemeData(
-            color: contentColor,
-            size: 18.0,
+    return Container(
+      color: const Color.fromRGBO(0, 249, 249, 1.0),
+      //TODO color: const Color.fromRGBO(249, 249, 249, 1.0),
+      child: Column(
+        children: [
+          Row(
+            children: <Widget>[
+              const SizedBox(width: 31),
+              IconTheme(
+                data: IconThemeData(
+                  color: contentColor,
+                  size: 18.0,
+                ),
+                child: icon,
+              ),
+              const SizedBox(width: 14),
+              Text(label.toL10nString(appLocalizations)),
+            ],
           ),
-          child: icon,
-        ),
-        Text(label.toL10nString(appLocalizations)),
-      ],
+          const Divider(
+            color: Colors.black,
+            height: 0,
+          )
+        ],
+      ),
     );
   }
 }
@@ -83,6 +97,10 @@ class _CategoryListViewState extends State<_CategoryListView> {
     } else {
       listToShow = widget.elements.shortenIfTooLong();
     }
+    final Color dividerColor = context.lightTheme()
+        ? context.extension<SmoothColorsThemeExtension>().primaryBlack
+        : Colors.white;
+
     return Container(
       margin: const EdgeInsets.only(left: 90.0),
       child: ListView.separated(
@@ -93,9 +111,9 @@ class _CategoryListViewState extends State<_CategoryListView> {
           return ProductRawDataElementItem(
               listToShow[index], () => extendList());
         },
-        separatorBuilder: (BuildContext context, _) => const Divider(
-            color: Colors
-                .black), //TODO utiliser contexte : remplacer noir par blanc dans le cas de dark mode
+        separatorBuilder: (BuildContext context, _) => Divider(
+          color: dividerColor,
+        ),
         itemCount: listToShow.length,
       ),
     );
