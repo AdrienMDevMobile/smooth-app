@@ -9,6 +9,7 @@ import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class ProductRawDataCategoryItem extends StatelessWidget {
   const ProductRawDataCategoryItem(this.category, {this.controller});
@@ -47,17 +48,30 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment
+                .spaceBetween, //ICI : utiliser cela pour mettre le stylo au bout de la ligne
             children: <Widget>[
-              const SizedBox(width: 31),
-              IconTheme(
-                data: IconThemeData(
-                  color: contentColor,
-                  size: 18.0,
+              Row(children: <Widget>[
+                const SizedBox(width: 31),
+                IconTheme(
+                  data: IconThemeData(
+                    color: contentColor,
+                    size: 18.0,
+                  ),
+                  child: icon,
                 ),
-                child: icon,
-              ),
-              const SizedBox(width: 14),
-              Text(label.toL10nString(appLocalizations)),
+                const SizedBox(width: 14),
+                Text(label.toL10nString(appLocalizations)),
+              ]),
+              Row(children: <Widget>[
+                IconTheme(
+                    data: IconThemeData(
+                      color: contentColor,
+                      size: 18.0,
+                    ),
+                    child: icons.Edit()),
+                const SizedBox(width: 28),
+              ]),
             ],
           ),
           const Divider(
