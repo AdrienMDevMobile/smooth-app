@@ -5,11 +5,11 @@ import 'package:smooth_app/pages/product/product_page/raw_data/models/product_ra
 import 'package:smooth_app/pages/product/product_page/raw_data/models/raw_data_element.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_element_item.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_list_ext.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class ProductRawDataCategoryItem extends StatelessWidget {
   const ProductRawDataCategoryItem(this.category, {this.controller});
@@ -43,13 +43,11 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Container(
-      color: const Color.fromRGBO(0, 249, 249, 1.0),
-      //TODO color: const Color.fromRGBO(249, 249, 249, 1.0),
+      color: const Color.fromRGBO(249, 249, 249, 1.0),
       child: Column(
-        children: [
+        children: <Widget>[
           Row(
-            mainAxisAlignment: MainAxisAlignment
-                .spaceBetween, //ICI : utiliser cela pour mettre le stylo au bout de la ligne
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Row(children: <Widget>[
                 const SizedBox(width: 31),
@@ -69,7 +67,7 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
                       color: contentColor,
                       size: 18.0,
                     ),
-                    child: icons.Edit()),
+                    child: const icons.Edit()),
                 const SizedBox(width: 28),
               ]),
             ],
