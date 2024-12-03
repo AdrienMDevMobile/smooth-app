@@ -23,14 +23,15 @@ class _ProductRawDataPageState extends State<ProductRawDataPage> {
   Widget build(BuildContext context) {
     final List<ProductRawDataCategory> productRawDatas =
         widget.product.toRawDatas();
-    final Color contentColor = context.lightTheme()
-        ? context.extension<SmoothColorsThemeExtension>().primaryBlack
+    final Color dividerColor = context.lightTheme()
+        ? const Color.fromRGBO(228, 228, 228, 1.0)
         : Colors.white;
+
     return Scaffold(
       body: ListView.separated(
         itemCount: productRawDatas.length,
         separatorBuilder: (BuildContext context, _) => Divider(
-          color: contentColor,
+          color: dividerColor,
           height: 0,
         ),
         itemBuilder: (_, int index) {

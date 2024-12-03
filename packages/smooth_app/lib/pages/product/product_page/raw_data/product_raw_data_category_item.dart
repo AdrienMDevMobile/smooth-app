@@ -40,6 +40,10 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
         ? context.extension<SmoothColorsThemeExtension>().primaryBlack
         : Colors.white;
 
+    final Color dividerColor = context.lightTheme()
+        ? const Color.fromRGBO(228, 228, 228, 1.0)
+        : Colors.white;
+
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Container(
@@ -79,8 +83,8 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
               ],
             ),
           ),
-          const Divider(
-            color: Colors.black,
+          Divider(
+            color: dividerColor,
             height: 0,
           )
         ],
@@ -117,7 +121,7 @@ class _CategoryListViewState extends State<_CategoryListView> {
       listToShow = widget.elements.shortenIfTooLong();
     }
     final Color dividerColor = context.lightTheme()
-        ? context.extension<SmoothColorsThemeExtension>().primaryBlack
+        ? const Color.fromRGBO(228, 228, 228, 1.0)
         : Colors.white;
 
     return Container(
@@ -126,9 +130,15 @@ class _CategoryListViewState extends State<_CategoryListView> {
         controller: widget.controller,
         physics: const ClampingScrollPhysics(),
         shrinkWrap: true,
+        padding: const EdgeInsets.symmetric(
+          vertical: 11.5,
+        ),
         itemBuilder: (BuildContext context, int index) {
-          return ProductRawDataElementItem(
-              listToShow[index], () => extendList());
+          return Container(
+            margin: const EdgeInsets.only(left: 21),
+            child: ProductRawDataElementItem(
+                listToShow[index], () => extendList()),
+          );
         },
         separatorBuilder: (BuildContext context, _) => Divider(
           color: dividerColor,
