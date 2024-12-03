@@ -46,31 +46,38 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
       color: const Color.fromRGBO(249, 249, 249, 1.0),
       child: Column(
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Row(children: <Widget>[
-                const SizedBox(width: 31),
-                IconTheme(
-                  data: IconThemeData(
-                    color: contentColor,
-                    size: 18.0,
-                  ),
-                  child: icon,
-                ),
-                const SizedBox(width: 14),
-                Text(label.toL10nString(appLocalizations)),
-              ]),
-              Row(children: <Widget>[
-                IconTheme(
+          Container(
+            margin: const EdgeInsetsDirectional.symmetric(vertical: 14),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                //Those rows in rows are here to have this Spaced through the lign layout
+                Row(children: <Widget>[
+                  const SizedBox(width: 31),
+                  //Element icon
+                  IconTheme(
                     data: IconThemeData(
                       color: contentColor,
                       size: 18.0,
                     ),
-                    child: const icons.Edit()),
-                const SizedBox(width: 28),
-              ]),
-            ],
+                    child: icon,
+                  ),
+                  const SizedBox(width: 14),
+                  //Element name
+                  Text(label.toL10nString(appLocalizations)),
+                ]),
+                const Row(children: <Widget>[
+                  //Edit button
+                  IconTheme(
+                      data: IconThemeData(
+                        color: Colors.grey,
+                        size: 18.0,
+                      ),
+                      child: icons.Edit()),
+                  SizedBox(width: 28),
+                ]),
+              ],
+            ),
           ),
           const Divider(
             color: Colors.black,
