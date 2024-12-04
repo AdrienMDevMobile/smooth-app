@@ -5,8 +5,6 @@ import 'package:smooth_app/pages/product/product_page/raw_data/models/product_ra
 import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_category_item.dart';
 
 import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_ext.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductRawDataPage extends StatefulWidget {

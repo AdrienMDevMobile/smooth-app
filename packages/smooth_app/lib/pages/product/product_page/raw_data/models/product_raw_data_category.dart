@@ -9,4 +9,12 @@ class ProductRawDataCategory {
   final List<ProductRawDataElement> rawDatas;
 }
 
-enum ProductRawDataCategoryLabel { labels, category, countries }
+enum ProductRawDataCategoryLabel {
+  labels,
+  category,
+  ingredients,
+  nutriment,
+  packaging,
+  stores,
+  countries
+}

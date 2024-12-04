@@ -55,7 +55,7 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                //Those rows in rows are here to have this Spaced through the lign layout
+                //Those rows in rows are here to have this Layout Spaced through the lign
                 Row(children: <Widget>[
                   const SizedBox(width: 31),
                   //Element icon
