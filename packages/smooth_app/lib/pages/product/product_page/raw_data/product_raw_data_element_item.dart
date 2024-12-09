@@ -12,13 +12,19 @@ class ProductRawDataElementItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (element is ProductRawDataElement) {
-      return Text((element as ProductRawDataElement).name);
-    } else {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      return GestureDetector(
-          onTap: () => onSeeMoreTap(),
-          child: Text(appLocalizations.tap_for_more));
+    switch (element.runtimeType) {
+      case const (ProductRawDataElement):
+        return Text((element as ProductRawDataElement).name);
+      case const (ProductRawDataSeeMoreButton):
+        {
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context);
+          return GestureDetector(
+              onTap: () => onSeeMoreTap(),
+              child: Text(appLocalizations.tap_for_more));
+        }
+      default:
+        throw FormatException('Invalid class ${element.runtimeType}');
     }
   }
 }

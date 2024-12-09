@@ -5,7 +5,6 @@ import 'package:smooth_app/pages/product/product_page/raw_data/models/product_ra
 import 'package:smooth_app/pages/product/product_page/raw_data/models/raw_data_element.dart';
 import 'package:smooth_app/query/product_query.dart';
 
-//ICI faire les derniers elements
 extension RawDataExt on Product {
   List<ProductRawDataCategory> toRawDatas() {
     final List<ProductRawDataCategory> toReturn = <ProductRawDataCategory>[];
@@ -21,6 +20,7 @@ extension RawDataExt on Product {
     _addRawDataInList(toReturn, ProductRawDataCategories.ingredients,
         _splitString(ingredientsTextInLanguages?[language]));
 
+    // TODO(micheldr): Change presentation into two Textfields instead of concatenation.
     _addRawDataInList(
         toReturn,
         ProductRawDataCategories.nutriment,
@@ -44,26 +44,24 @@ extension RawDataExt on Product {
   void _addRawDataInList(List<ProductRawDataCategory> toBeFilled,
       ProductRawDataCategories label, List<String>? toAdd) {
     if (toAdd != null) {
-      toBeFilled.add(ProductRawDataCategory(label, toAdd._toRawData()));
+      toBeFilled.add(ProductRawDataCategory(label, _toRawData(toAdd)));
     }
+  }
+
+  List<ProductRawDataElement> _toRawData(List<String> list) =>
+      list.map((String element) => ProductRawDataElement(element)).toList();
+
+  List<String>? _splitString(String? input) {
+    if (input == null) {
+      return null;
+    }
+    input = input.trim();
+    if (input.isEmpty) {
+      return null;
+    }
+    return input.split(',');
   }
 
   @protected
   OpenFoodFactsLanguage _getLanguage() => ProductQuery.getLanguage();
-}
-
-extension _ProductRawDataElementExt on List<String> {
-  List<ProductRawDataElement> _toRawData() =>
-      map((String element) => ProductRawDataElement(element)).toList();
-}
-
-List<String>? _splitString(String? input) {
-  if (input == null) {
-    return null;
-  }
-  input = input.trim();
-  if (input.isEmpty) {
-    return null;
-  }
-  return input.split(',');
 }
