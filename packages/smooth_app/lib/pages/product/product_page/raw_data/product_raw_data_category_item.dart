@@ -19,10 +19,13 @@ class ProductRawDataCategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          _ProductRawDataCategoryTile(category.icon, category.label),
+          _ProductRawDataCategoryTile(category.category.toAppIcon(),
+              category.category.toL10nString(appLocalizations)),
           _CategoryListView(
               elements: category.rawDatas, controller: controller),
         ]);
@@ -33,7 +36,7 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
   const _ProductRawDataCategoryTile(this.icon, this.label);
 
   final AppIcon icon;
-  final ProductRawDataCategoryLabel label;
+  final String label;
   @override
   Widget build(BuildContext context) {
     final Color contentColor = context.lightTheme()
@@ -43,8 +46,6 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
     final Color dividerColor = context.lightTheme()
         ? const Color.fromRGBO(228, 228, 228, 1.0)
         : Colors.white;
-
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Container(
       color: const Color.fromRGBO(249, 249, 249, 1.0),
@@ -68,7 +69,7 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
                   ),
                   const SizedBox(width: 14),
                   //Element name
-                  Text(label.toL10nString(appLocalizations)),
+                  Text(label),
                 ]),
                 const Row(children: <Widget>[
                   //Edit button

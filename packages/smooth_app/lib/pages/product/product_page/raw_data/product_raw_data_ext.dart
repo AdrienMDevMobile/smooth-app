@@ -4,8 +4,6 @@ import 'package:smooth_app/pages/product/attribute_first_row_helper.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_category.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/models/raw_data_element.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/resources/app_icons.dart';
-import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 //ICI faire les derniers elements
 extension RawDataExt on Product {
@@ -14,43 +12,39 @@ extension RawDataExt on Product {
 
     final OpenFoodFactsLanguage language = _getLanguage();
 
-    _addRawDataInList(toReturn, ProductRawDataCategoryLabel.labels,
-        const icons.Labels(), labelsTagsInLanguages?[language]);
+    _addRawDataInList(toReturn, ProductRawDataCategories.labels,
+        labelsTagsInLanguages?[language]);
 
-    _addRawDataInList(toReturn, ProductRawDataCategoryLabel.category,
-        const icons.Categories(), categoriesTagsInLanguages?[language]);
+    _addRawDataInList(toReturn, ProductRawDataCategories.category,
+        categoriesTagsInLanguages?[language]);
 
-    _addRawDataInList(
-        toReturn,
-        ProductRawDataCategoryLabel.ingredients,
-        const icons.Ingredients(),
+    _addRawDataInList(toReturn, ProductRawDataCategories.ingredients,
         _splitString(ingredientsTextInLanguages?[language]));
 
     _addRawDataInList(
         toReturn,
-        ProductRawDataCategoryLabel.nutriment,
-        const icons.NutritionFacts(),
+        ProductRawDataCategories.nutriment,
         AttributeFirstRowNutritionHelper(product: this)
             .getAllTerms()
-            .map((StringPair pair) => "${pair.first} ${pair.second}")
+            .map((StringPair pair) => '${pair.first} ${pair.second}')
             .toList());
 
-    _addRawDataInList(toReturn, ProductRawDataCategoryLabel.packaging,
-        const icons.Packaging(), _splitString(packaging));
+    _addRawDataInList(
+        toReturn, ProductRawDataCategories.packaging, _splitString(packaging));
 
-    _addRawDataInList(toReturn, ProductRawDataCategoryLabel.stores,
-        const icons.Stores(), _splitString(stores));
+    _addRawDataInList(
+        toReturn, ProductRawDataCategories.stores, _splitString(stores));
 
-    _addRawDataInList(toReturn, ProductRawDataCategoryLabel.countries,
-        const icons.Countries(), countriesTagsInLanguages?[language]);
+    _addRawDataInList(toReturn, ProductRawDataCategories.countries,
+        countriesTagsInLanguages?[language]);
 
     return toReturn;
   }
 
   void _addRawDataInList(List<ProductRawDataCategory> toBeFilled,
-      ProductRawDataCategoryLabel label, AppIcon icon, List<String>? toAdd) {
+      ProductRawDataCategories label, List<String>? toAdd) {
     if (toAdd != null) {
-      toBeFilled.add(ProductRawDataCategory(label, icon, toAdd._toRawData()));
+      toBeFilled.add(ProductRawDataCategory(label, toAdd._toRawData()));
     }
   }
 
