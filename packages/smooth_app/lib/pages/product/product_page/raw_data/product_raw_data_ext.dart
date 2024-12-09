@@ -21,13 +21,8 @@ extension RawDataExt on Product {
         _splitString(ingredientsTextInLanguages?[language]));
 
     // TODO(micheldr): Change presentation into two Textfields instead of concatenation.
-    _addRawDataInList(
-        toReturn,
-        ProductRawDataCategories.nutriment,
-        AttributeFirstRowNutritionHelper(product: this)
-            .getAllTerms()
-            .map((StringPair pair) => '${pair.first} ${pair.second}')
-            .toList());
+    _addRawDataDoubleTextInList(toReturn, ProductRawDataCategories.nutriment,
+        AttributeFirstRowNutritionHelper(product: this).getAllTerms());
 
     _addRawDataInList(
         toReturn, ProductRawDataCategories.packaging, _splitString(packaging));
@@ -48,8 +43,23 @@ extension RawDataExt on Product {
     }
   }
 
+  void _addRawDataDoubleTextInList(List<ProductRawDataCategory> toBeFilled,
+      ProductRawDataCategories label, List<StringPair>? toAdd) {
+    if (toAdd != null) {
+      toBeFilled
+          .add(ProductRawDataCategory(label, _toRawDataDoubleText(toAdd)));
+    }
+  }
+
   List<ProductRawDataElement> _toRawData(List<String> list) =>
       list.map((String element) => ProductRawDataElement(element)).toList();
+
+  List<ProductRawDataElementDoubleText> _toRawDataDoubleText(
+          List<StringPair> list) =>
+      list
+          .map((StringPair element) => ProductRawDataElementDoubleText(
+              element.first, element.second ?? ''))
+          .toList();
 
   List<String>? _splitString(String? input) {
     if (input == null) {

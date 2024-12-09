@@ -15,6 +15,21 @@ class ProductRawDataElementItem extends StatelessWidget {
     switch (element.runtimeType) {
       case const (ProductRawDataElement):
         return Text((element as ProductRawDataElement).name);
+      case const (ProductRawDataElementDoubleText):
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text((element as ProductRawDataElementDoubleText).text1),
+            Row(
+              children: [
+                Text((element as ProductRawDataElementDoubleText).text2),
+                const SizedBox(
+                  width: 29,
+                )
+              ],
+            )
+          ],
+        );
       case const (ProductRawDataSeeMoreButton):
         {
           final AppLocalizations appLocalizations =

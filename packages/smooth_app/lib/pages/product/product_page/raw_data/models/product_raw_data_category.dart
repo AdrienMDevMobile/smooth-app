@@ -4,7 +4,7 @@ class ProductRawDataCategory {
   const ProductRawDataCategory(this.category, this.rawDatas);
 
   final ProductRawDataCategories category;
-  final List<ProductRawDataElement> rawDatas;
+  final List<ProductRawDataSubCategory> rawDatas;
 }
 
 enum ProductRawDataCategories {
