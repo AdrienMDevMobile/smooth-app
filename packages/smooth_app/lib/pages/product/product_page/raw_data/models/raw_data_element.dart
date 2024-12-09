@@ -6,4 +6,4 @@ class ProductRawDataElement extends ProductRawDataSubCategory {
   final String name;
 }
 
-class ProductRawDataSeeMore extends ProductRawDataSubCategory {}
+class ProductRawDataSeeMoreButton extends ProductRawDataSubCategory {}
