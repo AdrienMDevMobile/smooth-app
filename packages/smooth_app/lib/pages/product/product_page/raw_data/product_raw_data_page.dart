@@ -30,6 +30,7 @@ class _ProductRawDataPageState extends State<ProductRawDataPage> {
         itemCount: productRawDatas.length,
         separatorBuilder: (BuildContext context, _) => Divider(
           color: dividerColor,
+          //remove default margin between elements
           height: 0,
         ),
         itemBuilder: (_, int index) {
