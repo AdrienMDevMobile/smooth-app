@@ -11,43 +11,75 @@ extension RawDataExt on Product {
 
     final OpenFoodFactsLanguage language = _getLanguage();
 
-    _addRawDataInList(toReturn, ProductRawDataCategories.labels,
-        labelsTagsInLanguages?[language]);
+    _addRawDataInList(
+      toReturn,
+      ProductRawDataCategories.labels,
+      labelsTagsInLanguages?[language],
+    );
 
-    _addRawDataInList(toReturn, ProductRawDataCategories.category,
-        categoriesTagsInLanguages?[language]);
+    _addRawDataInList(
+      toReturn,
+      ProductRawDataCategories.category,
+      categoriesTagsInLanguages?[language],
+    );
 
-    _addRawDataInList(toReturn, ProductRawDataCategories.ingredients,
-        _splitString(ingredientsTextInLanguages?[language]));
+    _addRawDataInList(
+      toReturn,
+      ProductRawDataCategories.ingredients,
+      _splitString(ingredientsTextInLanguages?[language]),
+    );
 
     // TODO(micheldr): Change presentation into two Textfields instead of concatenation.
-    _addRawDataDoubleTextInList(toReturn, ProductRawDataCategories.nutriment,
-        AttributeFirstRowNutritionHelper(product: this).getAllTerms());
+    _addRawDataDoubleTextInList(
+      toReturn,
+      ProductRawDataCategories.nutriment,
+      AttributeFirstRowNutritionHelper(product: this).getAllTerms(),
+    );
 
     _addRawDataInList(
-        toReturn, ProductRawDataCategories.packaging, _splitString(packaging));
+      toReturn,
+      ProductRawDataCategories.packaging,
+      _splitString(packaging),
+    );
 
     _addRawDataInList(
-        toReturn, ProductRawDataCategories.stores, _splitString(stores));
+      toReturn,
+      ProductRawDataCategories.stores,
+      _splitString(stores),
+    );
 
-    _addRawDataInList(toReturn, ProductRawDataCategories.countries,
-        countriesTagsInLanguages?[language]);
+    _addRawDataInList(
+      toReturn,
+      ProductRawDataCategories.countries,
+      countriesTagsInLanguages?[language],
+    );
 
     return toReturn;
   }
 
-  void _addRawDataInList(List<ProductRawDataCategory> toBeFilled,
-      ProductRawDataCategories label, List<String>? toAdd) {
+  void _addRawDataInList(
+    List<ProductRawDataCategory> toBeFilled,
+    ProductRawDataCategories label,
+    List<String>? toAdd,
+  ) {
     if (toAdd != null) {
-      toBeFilled.add(ProductRawDataCategory(label, _toRawData(toAdd)));
+      toBeFilled.add(ProductRawDataCategory(
+        label,
+        _toRawData(toAdd),
+      ));
     }
   }
 
-  void _addRawDataDoubleTextInList(List<ProductRawDataCategory> toBeFilled,
-      ProductRawDataCategories label, List<StringPair>? toAdd) {
+  void _addRawDataDoubleTextInList(
+    List<ProductRawDataCategory> toBeFilled,
+    ProductRawDataCategories label,
+    List<StringPair>? toAdd,
+  ) {
     if (toAdd != null) {
-      toBeFilled
-          .add(ProductRawDataCategory(label, _toRawDataDoubleText(toAdd)));
+      toBeFilled.add(ProductRawDataCategory(
+        label,
+        _toRawDataDoubleText(toAdd),
+      ));
     }
   }
 
@@ -58,7 +90,9 @@ extension RawDataExt on Product {
           List<StringPair> list) =>
       list
           .map((StringPair element) => ProductRawDataElementDoubleText(
-              element.first, element.second ?? ''))
+                element.first,
+                element.second ?? '',
+              ))
           .toList();
 
   List<String>? _splitString(String? input) {

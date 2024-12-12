@@ -47,10 +47,10 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
         : Colors.white;
 
     final Color dividerColor =
-        lightTheme ? const Color.fromRGBO(228, 228, 228, 1.0) : Colors.white;
+        lightTheme ? const Color(0xFFF9F9F9) : Colors.white;
 
     return Container(
-      color: const Color.fromRGBO(249, 249, 249, 1.0),
+      color: const Color(0xFFFEFEFE),
       child: Column(
         children: <Widget>[
           Container(
@@ -61,18 +61,20 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 //Element icon + label
-                Row(children: <Widget>[
-                  const SizedBox(width: 31.0),
-                  IconTheme(
-                    data: IconThemeData(
-                      color: contentColor,
-                      size: 18.0,
+                Row(
+                  children: <Widget>[
+                    const SizedBox(width: 31.0),
+                    IconTheme(
+                      data: IconThemeData(
+                        color: contentColor,
+                        size: 18.0,
+                      ),
+                      child: icon,
                     ),
-                    child: icon,
-                  ),
-                  const SizedBox(width: MEDIUM_SPACE),
-                  Text(label),
-                ]),
+                    const SizedBox(width: MEDIUM_SPACE),
+                    Text(label),
+                  ],
+                ),
                 //Edit button
                 const Row(
                   children: <Widget>[
@@ -83,7 +85,7 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
                       ),
                       child: icons.Edit(),
                     ),
-                    SizedBox(width: 28),
+                    SizedBox(width: 28.0),
                   ],
                 ),
               ],
