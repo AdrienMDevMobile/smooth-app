@@ -1,10 +1,13 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/models/raw_data_element.dart';
 
 class ProductRawDataElementItem extends StatelessWidget {
-  const ProductRawDataElementItem(this.element, this.onSeeMoreTap,
-      {this.controller});
+  const ProductRawDataElementItem(
+    this.element,
+    this.onSeeMoreTap, {
+    this.controller,
+  });
 
   final ProductRawDataSubCategory element;
   final ScrollController? controller;
@@ -21,10 +24,10 @@ class ProductRawDataElementItem extends StatelessWidget {
           children: <Widget>[
             Text((element as ProductRawDataElementDoubleText).text1),
             Row(
-              children: [
+              children: <Widget>[
                 Text((element as ProductRawDataElementDoubleText).text2),
                 const SizedBox(
-                  width: 29,
+                  width: 29.0,
                 )
               ],
             )
@@ -34,9 +37,10 @@ class ProductRawDataElementItem extends StatelessWidget {
         {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
-          return GestureDetector(
-              onTap: () => onSeeMoreTap(),
-              child: Text(appLocalizations.tap_for_more));
+          return InkWell(
+            onTap: () => onSeeMoreTap(),
+            child: Text(appLocalizations.tap_for_more),
+          );
         }
       default:
         throw FormatException('Invalid class ${element.runtimeType}');

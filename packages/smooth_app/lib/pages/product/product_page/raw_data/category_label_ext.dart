@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_category.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/resources/app_icons.dart';
 
 extension CategoryLabelExt on ProductRawDataCategories {
   String toL10nString(AppLocalizations appLocalizations) => switch (this) {
@@ -17,7 +17,7 @@ extension CategoryLabelExt on ProductRawDataCategories {
           appLocalizations.edit_product_form_item_stores_title,
       };
 
-  AppIcon toAppIcon() => switch (this) {
+  Widget toIcon() => switch (this) {
         ProductRawDataCategories.labels => const icons.Labels(),
         ProductRawDataCategories.category => const icons.Categories(),
         ProductRawDataCategories.ingredients => const icons.Ingredients(),
