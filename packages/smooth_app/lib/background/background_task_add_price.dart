@@ -210,6 +210,8 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       cropY1: cropY1,
       cropX2: cropX2,
       cropY2: cropY2,
+      compressQuality: 80,
+      forceCompression: true,
       overlayPainter: offsets.isEmpty
           ? null
           : EraserPainter(
@@ -254,6 +256,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     await addPrices(
       bearerToken: bearerToken,
       proofId: uploadProof.value.id,
+      localDatabase: localDatabase,
     );
 
     await closeSession(bearerToken: bearerToken);

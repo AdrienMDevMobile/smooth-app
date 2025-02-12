@@ -172,6 +172,9 @@ abstract class ProductQuery {
   /// Product helper only for prices.
   static late UriProductHelper uriPricesHelper;
 
+  /// Product helper only for Folksonomy.
+  static late UriHelper uriFolksonomyHelper;
+
   static bool isLoggedIn() => OpenFoodAPIConfiguration.globalUser != null;
 
   /// Sets the query type according to the current [UserPreferences]
@@ -186,6 +189,12 @@ abstract class ProductQuery {
     );
     uriPricesHelper = getProductHelper(
       UserPreferencesDevMode.userPreferencesFlagPriceProd,
+    );
+    uriFolksonomyHelper = UriHelper(
+      host: userPreferences.getDevModeString(
+            UserPreferencesDevMode.userPreferencesFolksonomyHost,
+          ) ??
+          uriHelperFolksonomyProd.host,
     );
   }
 
@@ -238,6 +247,10 @@ abstract class ProductQuery {
         productType.getDomain(),
       ),
     );
+  }
+
+  static String getProductTypeFromDomain(UriProductHelper uriProductHelper) {
+    return uriProductHelper.domain;
   }
 
   static List<ProductField> get fields => const <ProductField>[

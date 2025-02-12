@@ -296,7 +296,7 @@ class _AddToProductListAddNewListState
 
     _colorAnimation = ColorTween(
       begin: lightTheme ? extension.primaryLight : extension.primarySemiDark,
-      end: extension.red,
+      end: extension.error,
     ).animate(_animationController)
       ..addListener(() {
         setState(() {});
@@ -416,7 +416,7 @@ class _AddToProductListAddNewListState
                           icon: const Icon(Icons.check_circle),
                           color: _inputValid
                               ? iconColor
-                              : iconColor.withOpacity(0.4),
+                              : iconColor.withValues(alpha: 0.4),
                           tooltip: appLocalizations.product_list_create_tooltip,
                           onPressed: () => _addList(context),
                         ),

@@ -13,6 +13,14 @@ class Add extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add);
+
+  const Add.circled({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.add_circled);
 }
 
 class AddPrice extends AppIcon {
@@ -283,6 +291,14 @@ class Camera extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.camera_happy);
+
+  const Camera.restart({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.camera_restart);
 }
 
 class Categories extends AppIcon {
@@ -313,6 +329,16 @@ class Check extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.check);
+}
+
+class CheckList extends AppIcon {
+  const CheckList({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.checklist);
 }
 
 class Chevron extends AppIcon {
@@ -358,25 +384,6 @@ class Chevron extends AppIcon {
   Widget build(BuildContext context) {
     return RotatedBox(
       quarterTurns: turns,
-      child: super.build(context),
-    );
-  }
-}
-
-class ClearText extends AppIcon {
-  const ClearText({
-    super.color,
-    super.size,
-    super.shadow,
-    super.semanticLabel,
-    super.key,
-  }) : super._(_IconsFont.clear_text);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      // Fake it's centered
-      padding: const EdgeInsetsDirectional.only(end: 1.0),
       child: super.build(context),
     );
   }
@@ -521,6 +528,35 @@ class CircledArrow extends AppIcon {
       type == CircledArrowType.thin ? super.size : ((super.size ?? 20.0) - 8.0);
 }
 
+class ClearText extends AppIcon {
+  const ClearText({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.clear_text);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      // Fake it's centered
+      padding: const EdgeInsetsDirectional.only(end: 1.0),
+      child: super.build(context),
+    );
+  }
+}
+
+class Clear extends AppIcon {
+  const Clear({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.clear);
+}
+
 enum CircledArrowType {
   thin,
   normal,
@@ -544,6 +580,16 @@ class Close extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.close);
+}
+
+class Copy extends AppIcon {
+  const Copy({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.copy);
 }
 
 class Compare extends AppIcon {
@@ -610,6 +656,32 @@ class Crash extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.crash);
+}
+
+class CreativeCommons extends AppIcon {
+  const CreativeCommons.logo({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.creative_commons);
+
+  const CreativeCommons.attribution({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.creative_commons_attribution);
+
+  const CreativeCommons.shareAlike({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.creative_commons_share_alike);
 }
 
 class Currency extends AppIcon {
@@ -710,6 +782,16 @@ class DoubleChevron extends AppIcon {
   }
 }
 
+class Drag extends AppIcon {
+  const Drag.start({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.drag_start);
+}
+
 class Edit extends AppIcon {
   const Edit({
     super.color,
@@ -778,6 +860,16 @@ class Fish extends AppIcon {
   }) : super._(_IconsFont.fish);
 }
 
+class Flag extends AppIcon {
+  const Flag({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.flag);
+}
+
 class Fruit extends AppIcon {
   const Fruit({
     super.color,
@@ -836,6 +928,16 @@ class Help extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.help_circled);
+}
+
+class ImageGallery extends AppIcon {
+  const ImageGallery({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.gallery);
 }
 
 class Incognito extends AppIcon {
@@ -972,6 +1074,16 @@ class Menu extends AppIcon {
   }) : super._(_IconsFont.hamburger_menu);
 }
 
+class Message extends AppIcon {
+  const Message.edit({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.message_edit);
+}
+
 class Milk extends AppIcon {
   const Milk({
     super.color,
@@ -981,13 +1093,13 @@ class Milk extends AppIcon {
     super.key,
   }) : super._(_IconsFont.milk);
 
-  const Milk.filled({
+  const Milk.add({
     super.color,
     super.size,
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : super._(_IconsFont.milk_filled);
+  }) : super._(_IconsFont.milk_add);
 
   const Milk.download({
     super.color,
@@ -996,6 +1108,32 @@ class Milk extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.milk_download);
+
+  const Milk.happy({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.milk_filled);
+
+  const Milk.unhappy({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.milk_filled_unhappy);
+}
+
+class Move extends AppIcon {
+  const Move({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.move);
 }
 
 class NoPicture extends AppIcon {
@@ -1024,6 +1162,16 @@ class NutritionFacts extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.nutritional_facts);
+}
+
+class OCR extends AppIcon {
+  const OCR({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.ocr);
 }
 
 class Outdated extends AppIcon {
@@ -1091,14 +1239,6 @@ class Picture extends AppIcon {
     super.key,
   }) : super._(_IconsFont.image_check);
 
-  const Picture.checkAlt({
-    super.color,
-    super.size,
-    super.shadow,
-    super.semanticLabel,
-    super.key,
-  }) : super._(_IconsFont.image_check_alt);
-
   const Picture.error({
     super.color,
     super.size,
@@ -1106,6 +1246,24 @@ class Picture extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.image_error);
+
+  const Picture.open({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.image_open);
+}
+
+class PinchToZoom extends AppIcon {
+  const PinchToZoom({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.pinch_to_zoom);
 }
 
 class Profile extends AppIcon {
@@ -1182,6 +1340,24 @@ class Salt extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.salt);
+}
+
+class Scale extends AppIcon {
+  const Scale({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.scale);
+
+  const Scale.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.scale_alt);
 }
 
 class Share extends AppIcon {
@@ -1416,6 +1592,24 @@ class Warning extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.warning);
+}
+
+class Weight extends AppIcon {
+  const Weight({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.weight);
+
+  const Weight.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.weight_alt);
 }
 
 abstract class AppIcon extends StatelessWidget {
