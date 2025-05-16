@@ -64,13 +64,12 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">List&lt;StringPair&gt; addNutritionUnit(List&lt;StringPair&gt; initialList){
-  return initialList.map(
-      (StringPair element) =&gt; StringPair(first: element.first,
-      second: &#39;${element.second} ${getUnit(element.first)}&#39;
-      )
-    )
-    .toList();
+  <pre class="language-dart"><code class="language-dart">List&lt;StringPair&gt; addNutritionUnit(List&lt;StringPair&gt; initialList) {
+  return initialList
+      .map((StringPair element) =&gt; StringPair(
+          first: element.first,
+          second: &#39;${element.second} ${getUnit(element.first)}&#39;))
+      .toList();
 }</code></pre>
 </section>
 

@@ -64,8 +64,10 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">String getUnit(String element){
-  return UnitHelper.unitToString(Nutrient.fromOffTag(removeUnecessaryWords(element))?.typicalUnit) ?? &#39;&#39;;
+  <pre class="language-dart"><code class="language-dart">String getUnit(String element) {
+  return UnitHelper.unitToString(
+          Nutrient.fromOffTag(removeUnecessaryWords(element))?.typicalUnit) ??
+      &#39;&#39;;
 }</code></pre>
 </section>
 
