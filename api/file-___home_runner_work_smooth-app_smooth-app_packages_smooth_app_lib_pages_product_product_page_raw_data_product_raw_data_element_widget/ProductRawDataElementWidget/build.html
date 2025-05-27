@@ -79,14 +79,9 @@ Widget build(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: &lt;Widget&gt;[
           Text((element as ProductRawDataElementDoubleText).text1),
-          Row(
-            children: &lt;Widget&gt;[
-              Text((element as ProductRawDataElementDoubleText).text2),
-              const SizedBox(
-                width: 29.0,
-              )
-            ],
-          )
+          Padding(
+              padding: const EdgeInsetsDirectional.only(end: 29.0),
+              child: Text((element as ProductRawDataElementDoubleText).text2))
         ],
       );
     case const (ProductRawDataSeeMoreButton):

@@ -69,7 +69,7 @@
       .map((StringPair element) =&gt; StringPair(
           first: element.first,
           second: &#39;${element.second} ${getUnit(element.first)}&#39;))
-      .toList();
+      .toList(growable: false);
 }</code></pre>
 </section>
 
