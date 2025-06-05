@@ -73,19 +73,21 @@
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-  return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: &lt;Widget&gt;[
-        _ProductRawDataCategoryTile( &#47;&#47;Rename Header _ProductRawDataSectionHeader
+  return MultiSliver(
+    children: [
+      SliverToBoxAdapter(
+        child: _ProductRawDataCategoryTile(
           category.category.toIcon(),
           category.category.toL10nString(appLocalizations),
           onEditTap,
         ),
-        ProductRawDataElementsListWidget(
-          elements: category.rawDatas,
-          controller: controller,
-        ),
-      ]);
+      ),
+      ProductRawDataElementsListWidget(
+        elements: category.rawDatas,
+      )
+    ],
+  );
+  ;
 }</code></pre>
 </section>
 
