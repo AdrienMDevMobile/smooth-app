@@ -74,7 +74,7 @@ Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
   return MultiSliver(
-    children: [
+    children: &lt;Widget&gt;[
       SliverToBoxAdapter(
         child: _ProductRawDataCategoryTile(
           category.category.toIcon(),
@@ -87,7 +87,6 @@ Widget build(BuildContext context) {
       )
     ],
   );
-  ;
 }</code></pre>
 </section>
 
